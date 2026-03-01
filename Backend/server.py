@@ -13,6 +13,7 @@ origins = [
     "http://localhost:8000",
     "http://127.0.0.1:5500",
     "http://192.168.31.116:5500",# Add the origin where your JS is running
+    "https://stmansys.netlify.app"
 ]
 
 app.add_middleware(

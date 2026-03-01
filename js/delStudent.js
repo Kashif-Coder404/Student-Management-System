@@ -24,11 +24,14 @@ sendKeyBtn.addEventListener("click", () => {
 });
 async function adminCheck(key) {
   try {
-    const res = await fetch(`http://192.168.31.116:5100/delStudents/`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ authKey: key, stRoll: "", name: "" }),
-    });
+    const res = await fetch(
+      `https://student-management-system-u00h.onrender.com/delStudents/`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ authKey: key, stRoll: "", name: "" }),
+      },
+    );
     const data = await res.json();
     console.log("data first: ", data);
 
@@ -61,16 +64,19 @@ async function delSt(stDet) {
   }
 
   try {
-    const res = await fetch(`http://192.168.31.116:5100/delStudents/`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      // Map your form data to the backend 'stRoll' field
-      body: JSON.stringify({
-        authKey: delkey,
-        stRoll: stDet.rollNo,
-        name: stDet.name,
-      }),
-    });
+    const res = await fetch(
+      `https://student-management-system-u00h.onrender.com/delStudents/`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        // Map your form data to the backend 'stRoll' field
+        body: JSON.stringify({
+          authKey: delkey,
+          stRoll: stDet.rollNo,
+          name: stDet.name,
+        }),
+      },
+    );
 
     const data = await res.json();
     console.log(data);

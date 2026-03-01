@@ -9,11 +9,14 @@ form.addEventListener("submit", (e) => {
 
 async function addStudent(st) {
   try {
-    const res = await fetch("http://192.168.31.116:5100/addStudent/", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(st),
-    });
+    const res = await fetch(
+      "https://student-management-system-u00h.onrender.com/addStudent/",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(st),
+      },
+    );
     const data = await res.json();
     window.location.href = `message.html?status=${data.status}&msg=${data.message}`;
   } catch (err) {

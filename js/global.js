@@ -31,10 +31,13 @@ const savedKey = sessionStorage.getItem("adminKey");
 
 async function logout() {
   try {
-    const res = await fetch("http://192.168.31.116:5100/logout/", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-    });
+    const res = await fetch(
+      "https://student-management-system-u00h.onrender.com/logout/",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+      },
+    );
     const data = await res.json();
     if (data.status === "success") {
       sessionStorage.removeItem("adminKey");

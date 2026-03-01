@@ -2,9 +2,12 @@ const tableHead = docEl("tH");
 
 async function getStudentDetails() {
   try {
-    const res = await fetch("http://192.168.31.116:5100/students", {
-      method: "GET",
-    });
+    const res = await fetch(
+      "https://student-management-system-u00h.onrender.com/students",
+      {
+        method: "GET",
+      },
+    );
     const data = await res.json();
     console.log("View Students from server: ", data);
     insertStudent(data["studentData"]);
@@ -14,7 +17,7 @@ async function getStudentDetails() {
 }
 getStudentDetails();
 
-function insertStudent(dataOfStudent) { 
+function insertStudent(dataOfStudent) {
   const stArr = Object.values(dataOfStudent);
   stArr.forEach((el) => {
     console.log(el);
