@@ -25,7 +25,7 @@ sendKeyBtn.addEventListener("click", () => {
 async function adminCheck(key) {
   try {
     const res = await fetch(
-      `https://student-management-system-u00h.onrender.com/delStudents/`,
+      `https://student-management-system-u00h.onrender.com/delStudents`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -65,7 +65,7 @@ async function delSt(stDet) {
 
   try {
     const res = await fetch(
-      `https://student-management-system-u00h.onrender.com/delStudents/`,
+      `https://student-management-system-u00h.onrender.com/delStudents`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

@@ -32,7 +32,7 @@ const savedKey = sessionStorage.getItem("adminKey");
 async function logout() {
   try {
     const res = await fetch(
-      "https://student-management-system-u00h.onrender.com/logout/",
+      "https://student-management-system-u00h.onrender.com/logout",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

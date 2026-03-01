@@ -10,7 +10,7 @@ form.addEventListener("submit", (e) => {
 async function addStudent(st) {
   try {
     const res = await fetch(
-      "https://student-management-system-u00h.onrender.com/addStudent/",
+      "https://student-management-system-u00h.onrender.com/addStudent",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
