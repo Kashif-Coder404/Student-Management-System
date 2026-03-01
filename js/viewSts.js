@@ -21,12 +21,17 @@ function insertStudent(dataOfStudent) {
   const stArr = Object.values(dataOfStudent);
   stArr.forEach((el) => {
     console.log(el);
-    tableHead.innerHTML += `<tr>
-                <td>${el["name"]}</td>
-                <td>${el["rollNo"]}</td>
-                <td>${el["email"]}</td>
-                <td>${el["course"]}</td>
-              </tr>`;
+    tableHead.innerHTML += `
+    <tr>
+    <td>
+    
+    ${el["name"]}
+    <button onclick="stDet('${el["rollNo"]}')">></button>
+    </td>
+    <td>${el["rollNo"]}</td>
+    <td>${el["email"]}</td>
+    <td>${el["course"]}</td>
+    </tr>`;
   });
 }
 // insertStudent(stData);

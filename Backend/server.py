@@ -13,8 +13,7 @@ origins = [
     "http://localhost:8000",
     "http://127.0.0.1:5500",
     "http://192.168.31.116:5500",# Add the origin where your JS is running
-    "https://stmansys.netlify.app",
-    "https://student-management-system-u00h.onrender.com"
+    "https://stmansys.netlify.app"
 ]
 
 app.add_middleware(
@@ -203,3 +202,14 @@ def logout():
     global isAdmin
     isAdmin = False
     return {"message" :"Logged out!", "status" : "success"}
+
+
+
+class StudentDetail(BaseModel):
+    stRoll: Optional[str] = None
+@app.post("/stDet")
+def studentDetail(stRoll: StudentDetail):
+    print(f"Recieved Roll no: ",stRoll)
+    with open(path,"r") as f:
+        data = json.load(f)
+        return {"msg" : data}

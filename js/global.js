@@ -78,3 +78,18 @@ sideLinks.forEach((li) => {
     li.classList.remove("active");
   }
 });
+
+async function stDet(stRollNo) {
+  try {
+    const res = await fetch("http://192.168.31.116:5100/stDet", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ stRoll: stRollNo }),
+    });
+    const data = await res.json();
+    console.log(data);
+    // window.location.href = `studentDetails.html?staus=${data.status}&msg=${data.message}`;
+  } catch (err) {
+    console.log(err);
+  }
+}

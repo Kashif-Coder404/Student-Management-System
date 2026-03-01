@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Student Management Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="buttonStyle.css" />
+  </head>
+  <body>
+    <!-- Top Navbar -->
+    <div id="navbar-container"></div>
+
+    <div class="container">
+      <aside class="sidebar">
+        <!-- <button id="menu-btn" class="menu-btn">☰</button> -->
+        <div class="aside-inner-cont">
+          <ul>
+            <li class="sideLink active" id="dashboard">
+              <a href="index.html">Dashboard</a>
+            </li>
+            <li class="sideLink" id="addStudent">
+              <a href="addStudent.html">Add Student</a>
+            </li>
+            <li class="sideLink" id="viewStudent">
+              <a href="students.html">View Students</a>
+            </li>
+            <li class="sideLink" id="delStudent">
+              <a href="delStudent.html">Delete Students</a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+      <!-- Main Content -->
+      <main class="main-content">
+        <div class="student-card">
+          <div class="student-header">
+            <h1>Student Profile</h1>
+            <p>Detailed information</p>
+          </div>
+
+          <div class="student-grid">
+            <div class="detail-item">
+              <span class="label">Full Name</span>
+              <span class="value" id="name">—</span>
+            </div>
+
+            <div class="detail-item">
+              <span class="label">Roll Number</span>
+              <span class="value" id="rollNo">—</span>
+            </div>
+
+            <div class="detail-item">
+              <span class="label">Course</span>
+              <span class="value" id="course">—</span>
+            </div>
+
+            <div class="detail-item">
+              <span class="label">Email</span>
+              <span class="value" id="email">—</span>
+            </div>
+
+            <div class="detail-item full-width">
+              <span class="label">Address</span>
+              <span class="value" id="address">—</span>
+            </div>
+
+            <div class="detail-item">
+              <span class="label">Gender</span>
+              <span class="value" id="gender">—</span>
+            </div>
+
+            <div class="detail-item">
+              <span class="label">Phone</span>
+              <span class="value" id="phone">—</span>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+  <script src="js/global.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const status = params.get("status");
+    const msg = params.get("msg");
+    console.log(msg);
+  </script>
+</html>

@@ -83,7 +83,7 @@ async function delSt(stDet) {
     delAlertEl.innerText = data.msg || data.error;
 
     if (data.status === "success") {
-      window.location.href = `message.html?status=${data.status}&msg=${data.message}`;
+      window.location.href = `message.html?status=${data.status}&msg=${data.msg}`;
     }
   } catch (err) {
     console.log(err);
