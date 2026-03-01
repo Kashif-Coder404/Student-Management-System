@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>View Students</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Top Navbar -->
+    <div id="navbar-container"></div>
+
+    <div class="container">
+      <aside class="sidebar">
+        <!-- <button id="menu-btn" class="menu-btn">☰</button> -->
+        <div class="aside-inner-cont">
+          <ul>
+            <li class="sideLink active" id="dashboard">
+              <a href="index.html">Dashboard</a>
+            </li>
+            <li class="sideLink" id="addStudent">
+              <a href="addStudent.html">Add Student</a>
+            </li>
+            <li class="sideLink" id="viewStudent">
+              <a href="students.html">View Students</a>
+            </li>
+            <li class="sideLink" id="delStudent">
+              <a href="delStudent.html">Delete Students</a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+      <!-- Main Content -->
+      <main class="main-content">
+        <h1>Students</h1>
+
+        <!-- Search + Add Button -->
+        <div class="top-actions">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search by name or roll no"
+          />
+          <a href="addStudent.html" class="btn">+ Add Student</a>
+        </div>
+
+        <!-- Students Table -->
+        <div class="table-section">
+          <table>
+            <thead id="tH">
+              <tr>
+                <th>Name</th>
+                <th>Roll No</th>
+                <th>Email</th>
+                <th>Course</th>
+              </tr>
+            </thead>
+            <tbody id="studentTableBody">
+              <!-- JS will insert students here -->
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+    <script src="js/global.js"></script>
+
+    <script src="js/viewSts.js"></script>
+  </body>
+</html>

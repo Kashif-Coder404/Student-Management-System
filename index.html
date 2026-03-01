@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Student Management Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="buttonStyle.css" />
+  </head>
+  <body>
+    <!-- Top Navbar -->
+    <div id="navbar-container"></div>
+
+    <div class="container">
+      <aside class="sidebar">
+        <!-- <button id="menu-btn" class="menu-btn">☰</button> -->
+        <div class="aside-inner-cont">
+          <ul>
+            <li class="sideLink active" id="dashboard">
+              <a href="index.html">Dashboard</a>
+            </li>
+            <li class="sideLink" id="addStudent">
+              <a href="addStudent.html">Add Student</a>
+            </li>
+            <li class="sideLink" id="viewStudent">
+              <a href="students.html">View Students</a>
+            </li>
+            <li class="sideLink" id="delStudent">
+              <a href="delStudent.html">Delete Students</a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+      <!-- Main Content -->
+      <main class="main-content">
+        <h1>Dashboard</h1>
+        <div class="quick-actions">
+          <button
+            class="quickCardBtn"
+            onclick="location.href = 'addStudent.html'"
+          >
+            + Add Student
+            <div class="arrow-wrapper">
+              <div class="arrow"></div>
+            </div>
+          </button>
+          <button
+            class="quickCardBtn"
+            onclick="location.href = 'students.html'"
+          >
+            View Students
+            <div class="arrow-wrapper">
+              <div class="arrow"></div>
+            </div>
+          </button>
+          <button
+            class="quickCardBtn"
+            onclick="location.href = 'delStudent.html'"
+          >
+            Delete Student
+
+            <div class="arrow-wrapper">
+              <div class="arrow"></div>
+            </div>
+          </button>
+        </div>
+        <!-- Stats Cards -->
+        <div class="cards">
+          <div class="card">
+            <h3>Total Students</h3>
+            <p id="totalStudents">0</p>
+          </div>
+
+          <div class="card">
+            <h3>Total Courses</h3>
+            <p>5</p>
+          </div>
+
+          <div class="card">
+            <h3>Active Students</h3>
+            <p>0</p>
+          </div>
+        </div>
+
+        <!-- Recent Students Table -->
+        <div class="table-section">
+          <h2>Recent Students</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Roll No</th>
+                <th>Course</th>
+              </tr>
+            </thead>
+            <tbody id="recentStudents">
+              <!-- JS will insert rows here -->
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </body>
+  <script src="js/global.js"></script>
+  <script type="module" src="js/homePage.js"></script>
+</html>

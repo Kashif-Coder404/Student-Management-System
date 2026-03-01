@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Add Student</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Top Navbar -->
+    <div id="navbar-container"></div>
+
+    <div class="container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <!-- <button id="menu-btn" class="menu-btn">☰</button> -->
+        <div class="aside-inner-cont">
+          <ul>
+            <li class="sideLink active" id="dashboard">
+              <a href="index.html">Dashboard</a>
+            </li>
+            <li class="sideLink" id="addStudent">
+              <a href="addStudent.html">Add Student</a>
+            </li>
+            <li class="sideLink" id="viewStudent">
+              <a href="students.html">View Students</a>
+            </li>
+            <li class="sideLink" id="delStudent">
+              <a href="delStudent.html">Delete Students</a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+      <!-- Main Content -->
+      <main class="main-content">
+        <h1 class="addStHead">Add New Student</h1>
+
+        <div class="form-container">
+          <form id="addStudentForm">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" name="firstName" id="firstName" required />
+            </div>
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+
+            <!-- <div class="form-group">
+              <label>Roll Number</label>
+              <input type="text" id="roll" name="rollNo" required />
+            </div> -->
+
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+
+            <div class="form-group">
+              <label>Phone</label>
+              <input type="tel" id="phone" name="phone" required />
+            </div>
+
+            <div class="form-group">
+              <label>Gender</label>
+              <select id="gender" name="gender" required>
+                <option value="">Select Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Course</label>
+              <!-- <input type="text" id="course" name="course" /> -->
+              <select name="course" id="course" required>
+                <option value="">Select Course</option>
+                <option>B.C.A</option>
+                <option>BSc IT</option>
+                <option>B.B.A</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Address</label>
+              <textarea
+                id="address"
+                name="address"
+                rows="3"
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-buttons">
+              <button type="submit" class="btn">Save Student</button>
+              <button type="reset" class="btn secondary-btn">Reset</button>
+              <span id="alert" style="color: red"></span>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+    <script src="js/global.js"></script>
+
+    <script src="js/addSt.js"></script>
+  </body>
+</html>

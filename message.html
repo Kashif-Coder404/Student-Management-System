@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Message</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Top Navbar -->
+    <div id="navbar-container"></div>
+
+    <div class="container">
+      <aside class="sidebar">
+        <!-- <button id="menu-btn" class="menu-btn">☰</button> -->
+        <div class="aside-inner-cont">
+          <ul>
+            <li class="sideLink active" id="dashboard">
+              <a href="index.html">Dashboard</a>
+            </li>
+            <li class="sideLink" id="addStudent">
+              <a href="addStudent.html">Add Student</a>
+            </li>
+            <li class="sideLink" id="viewStudent">
+              <a href="students.html">View Students</a>
+            </li>
+            <li class="sideLink" id="delStudent">
+              <a href="delStudent.html">Delete Students</a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+      <!-- Main Content -->
+      <main
+        class="main-content"
+        style="
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        "
+      >
+        <div class="message-box">
+          <h1 id="msgTitle">Success</h1>
+          <p id="msgText"></p>
+
+          <div class="form-buttons">
+            <a href="addStudent.html" class="btn">Add Another Student</a>
+            <a href="students.html" class="btn secondary-btn">View Students</a>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="js/global.js"></script>
+
+    <script>
+      // Read message from URL
+      const params = new URLSearchParams(window.location.search);
+      const status = params.get("status");
+      const msg = params.get("msg");
+      console.log(msg);
+
+      const title = document.getElementById("msgTitle");
+      const text = document.getElementById("msgText");
+      text.innerText = msg;
+
+      if (status === "error") {
+        title.innerText = "Error";
+        title.style.color = "red";
+      }
+    </script>
+  </body>
+</html>

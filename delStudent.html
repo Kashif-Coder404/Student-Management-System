@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Delete Student</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Top Navbar -->
+    <div id="navbar-container"></div>
+
+    <div class="container">
+      <aside class="sidebar">
+        <!-- <button id="menu-btn" class="menu-btn">☰</button> -->
+        <div class="aside-inner-cont">
+          <ul>
+            <li class="sideLink active" id="dashboard">
+              <a href="index.html">Dashboard</a>
+            </li>
+            <li class="sideLink" id="addStudent">
+              <a href="addStudent.html">Add Student</a>
+            </li>
+            <li class="sideLink" id="viewStudent">
+              <a href="students.html">View Students</a>
+            </li>
+            <li class="sideLink" id="delStudent">
+              <a href="delStudent.html">Delete Students</a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+      <!-- Main Content -->
+
+      <main class="main-content delContMain">
+        <div class="keyPrCont" id="keyOverlay">
+          <div class="keyPrInnerCont form-container">
+            <h2 style="margin-bottom: 20px">Security Check</h2>
+
+            <div class="form-group">
+              <label for="authKey">Admin Key</label>
+              <input
+                type="password"
+                name="authKey"
+                id="authKey"
+                placeholder="Enter key to proceed"
+                required
+              />
+            </div>
+            <h3 id="keyAlert" style="color: red; font-size: 0.9rem"></h3>
+            <div class="form-buttons">
+              <button id="sendKeybtn" class="btn">Verify Key</button>
+            </div>
+          </div>
+        </div>
+
+        <h1>Delete Student Record</h1>
+        <div class="form-container">
+          <form id="delStForm">
+            <div class="form-group">
+              <label for="stName">Student Name</label>
+              <input
+                type="text"
+                name="name"
+                id="stName"
+                autocapitalize="off"
+                autocomplete="off"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="rollNo">Roll No</label>
+              <input
+                type="text"
+                name="rollNo"
+                id="rollNo"
+                autocomplete="off"
+                required
+              />
+            </div>
+            <div class="form-buttons">
+              <button type="submit" class="btn delete-btn">
+                Delete Student
+              </button>
+              <span id="delAlert" style="color: red"></span>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+  </body>
+  <script src="js/global.js"></script>
+
+  <script type="module" src="js/delStudent.js"></script>
+</html>
