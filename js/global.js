@@ -90,14 +90,13 @@ async function stDet(stRollNo) {
       },
     );
     const data = await res.json();
-    console.log(data);
-    document.getElementById("name").textContent = data.name;
+    document.getElementById("name").textContent = data.msg.name;
     document.getElementById("rollNo").textContent = stRollNo;
-    document.getElementById("course").textContent = data.course;
-    document.getElementById("email").textContent = data.email;
-    document.getElementById("address").textContent = data.address;
-    document.getElementById("gender").textContent = data.gender;
-    document.getElementById("phone").textContent = data.phone;
+    document.getElementById("course").textContent = data.msg.course;
+    document.getElementById("email").textContent = data.msg.email;
+    document.getElementById("address").textContent = data.msg.address;
+    document.getElementById("gender").textContent = data.msg.gender;
+    document.getElementById("phone").textContent = data.msg.phone;
 
     // window.location.href = `studentDetails.html?staus=${data.status}&msg=${data.message}`;
   } catch (err) {
