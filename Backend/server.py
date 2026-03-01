@@ -8,21 +8,22 @@ import json,os
 app = FastAPI()
 
 # Configure CORS
-# origins = [
-#     "http://localhost",
-#     "http://localhost:8000",
-#     "http://127.0.0.1:5500",
-#     "http://192.168.31.116:5500",# Add the origin where your JS is running
-#     "https://stmansys.netlify.app"
-# ]
+origins = [
+    "http://localhost",
+    "http://localhost:8000",
+    "http://127.0.0.1:5500",
+    "http://192.168.31.116:5500",# Add the origin where your JS is running
+    "https://stmansys.netlify.app",
+    "https://student-management-system-u00h.onrender.com"
+]
 
-# app.add_middleware(
-#     CORSMiddleware,
-#     allow_origins=origins,
-#     allow_credentials=False,
-#     allow_methods=["*"],
-#     allow_headers=["*"],
-# )
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 path = "./users.json"
 isAdmin = False
