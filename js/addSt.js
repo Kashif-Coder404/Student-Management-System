@@ -26,11 +26,14 @@ cancelKeyBtn.addEventListener("click", () => {
 
 async function keyCheck(key) {
   try {
-    const res = await fetch("http://192.168.31.116:5100/adminCheck", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ adminKey: key }),
-    });
+    const res = await fetch(
+      "https://student-management-system-u00h.onrender.com/adminCheck",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ adminKey: key }),
+      },
+    );
     const data = await res.json();
     if (data.status === "error") {
       keyAlertEl.innerText = data.msg;
