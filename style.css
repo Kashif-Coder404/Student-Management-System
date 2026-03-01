@@ -508,4 +508,53 @@ table th {
   }
 }
 
-/* Dashboard */
+/* Authentiaction */
+
+/* Overlay background */
+.key-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Popup box */
+.key-modal {
+  background: #ffffff;
+  padding: 25px;
+  width: 100%;
+  max-width: 380px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  animation: popIn 0.25s ease;
+}
+
+.key-modal h2 {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.key-alert {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* Animation */
+@keyframes popIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

@@ -19,6 +19,6 @@
     "titleBar.inactiveForeground": "#e7e7e799"
   },
   "peacock.color": "#4D78CC",
-  "python-envs.defaultEnvManager": "ms-python.python:system",
+  "python-envs.defaultEnvManager": "ms-python.python:venv",
   "python.REPL.enableREPLSmartSend": false
 }

@@ -91,9 +91,38 @@
                 required
               ></textarea>
             </div>
+            <!-- Key Overlay -->
+            <div class="key-overlay" id="keyOverlay">
+              <div class="key-modal">
+                <h2>Security Check</h2>
 
+                <div class="form-group">
+                  <label for="authKey">Admin Key</label>
+                  <input
+                    type="password"
+                    id="authKey"
+                    placeholder="Enter key to proceed"
+                  />
+                </div>
+
+                <p id="keyAlert" class="key-alert"></p>
+
+                <div class="form-buttons">
+                  <button type="button" id="verifyKeyBtn" class="btn">
+                    Verify & Submit
+                  </button>
+                  <button
+                    type="button"
+                    id="cancelKeyBtn"
+                    class="btn secondary-btn"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </div>
             <div class="form-buttons">
-              <button type="submit" class="btn">Save Student</button>
+              <button class="btn">Save Student</button>
               <button type="reset" class="btn secondary-btn">Reset</button>
               <span id="alert" style="color: red"></span>
             </div>

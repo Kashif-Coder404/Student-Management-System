@@ -77,62 +77,68 @@ path = "./users.json"
 
 # delSt("12345","Kashif ahmead")
 
-def generateRollNo(course: str):
-    courseStNum = 0
-    genRollNo = ""
-    with open(path,"r") as f:
-        data = json.load(f)
-        for key in data:
-            if(key):
-                if(data[key].get("course") == course):
-                    courseStNum += 1
-        leadingZero = "-00" if courseStNum < 10 else "-0"
-        genRollNo = course + leadingZero + str(courseStNum + 1)
-    return str(genRollNo)
+# def generateRollNo(course: str):
+#     courseStNum = 0
+#     genRollNo = ""
+#     with open(path,"r") as f:
+#         data = json.load(f)
+#         for key in data:
+#             if(key):
+#                 if(data[key].get("course") == course):
+#                     courseStNum += 1
+#         leadingZero = "-00" if courseStNum < 10 else "-0"
+#         genRollNo = course + leadingZero + str(courseStNum + 1)
+#     return str(genRollNo)
 
-def addSt(student):
-    newRoll = generateRollNo(student.get("course"))
-    with open(path,"r") as f:
-        data = json.load(f)
-        name = student.get("name")
-        namePresent = False
-        for key in data:
-            if(key):     
-                if(data[key].get("name") == name):
-                    namePresent = True
-                    break
-        if namePresent:
-            print("Student Already Present. Try Different Name")
+# def addSt(student):
+#     newRoll = generateRollNo(student.get("course"))
+#     with open(path,"r") as f:
+#         data = json.load(f)
+#         name = student.get("name")
+#         namePresent = False
+#         for key in data:
+#             if(key):     
+#                 if(data[key].get("name") == name):
+#                     namePresent = True
+#                     break
+#         if namePresent:
+#             print("Student Already Present. Try Different Name")
             
             
-            return {"message": "Student Already Present", "status": "error"}
-        with open(path,"w") as file:
-            data[newRoll] = {
-                "firstName": student.get("firstName"),
-                "name": student.get("name"),
-                "rollNo": newRoll,
-                "email":student.get("email"),
-                "phone":student.get("phone"),
-                "gender":student.get("gender"),
-                "course":student.get("course"),
-                "address": student.get("address")}
-            json.dump(data,file,indent=4)
-            print("successfully added the Student")
-            return {"message": "Student added!","student": student , "status": "success"}
-stObj = {
-        "firstName": "Kashif",
-        "name": "Kashif Ahmead",
-        "rollNo": "366454",
-        "email": "faeezdon77@gmail.com",
-        "phone": "976090395",
-        "gender": "Male",
-        "course": "B.B.A",
-        "address": "35/84 Muslim colony lakhi bhagh Dehradun"
-}      
+#             return {"message": "Student Already Present", "status": "error"}
+#         with open(path,"w") as file:
+#             data[newRoll] = {
+#                 "firstName": student.get("firstName"),
+#                 "name": student.get("name"),
+#                 "rollNo": newRoll,
+#                 "email":student.get("email"),
+#                 "phone":student.get("phone"),
+#                 "gender":student.get("gender"),
+#                 "course":student.get("course"),
+#                 "address": student.get("address")}
+#             json.dump(data,file,indent=4)
+#             print("successfully added the Student")
+#             return {"message": "Student added!","student": student , "status": "success"}
+# stObj = {
+#         "firstName": "Kashif",
+#         "name": "Kashif Ahmead",
+#         "rollNo": "366454",
+#         "email": "faeezdon77@gmail.com",
+#         "phone": "976090395",
+#         "gender": "Male",
+#         "course": "B.B.A",
+#         "address": "35/84 Muslim colony lakhi bhagh Dehradun"
+# }      
 
-roll = "B.C.A-001"
-def stDet(rollNo):
-    with open(path,"r") as file:
-        data = json.load(file)
-        print(data.get(rollNo))
-stDet(roll)
+# roll = "B.C.A-001"
+# def stDet(rollNo):
+#     with open(path,"r") as file:
+#         data = json.load(file)
+#         print(data.get(rollNo))
+# stDet(roll)
+
+
+
+def courseData():
+    if not os.path.exists(path):
+        

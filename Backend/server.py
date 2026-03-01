@@ -86,7 +86,7 @@ def addStudent(student: dict):
             print("Roll generation error:", e)
             return course + "-001"
 
-    newRoll = generateRollNo(student.get("course"))
+    newRoll = generateRollNo(str(student.get("course")))
 
     try:
         # read existing data safely
@@ -212,7 +212,7 @@ def studentDetail(stRoll: StudentDetail):
     with open(path, "r") as f:
         data = json.load(f)
 
-    roll_no = stRoll.stRoll   # ✅ extract value
+    roll_no = stRoll.stRoll
 
     student = data.get(roll_no)
 
@@ -220,3 +220,21 @@ def studentDetail(stRoll: StudentDetail):
         return {"error": "Student not found"}
 
     return {"msg" : student}
+
+
+class AdminKeyRequest(BaseModel):
+    adminKey: Optional[str] = None
+@app.post("/adminCheck")
+def adminCheck(adminKey: AdminKeyRequest):
+    print("Recieved KEY: ",type(adminKey))
+    global isAdmin
+    Key = adminKey.adminKey
+    
+    if Key == "yesDelSt2026":
+        isAdmin = True
+        print("true runs")
+        return {"msg" : "Access Granted!" , "isAdmin" : isAdmin , "status" : "success"}
+    else:
+        isAdmin = False
+        print("false runs")
+        return {"msg" : "Key invalid" , "status" : "error" , "isAdmin" : False}
