@@ -26,7 +26,9 @@ function insertStudent(dataOfStudent) {
     <td>
     
     ${el["name"]}
-    <button onclick="stDet('${el["rollNo"]}')">></button>
+    <button onclick="window.location.href='studentDetails.html?rollNo=${el["rollNo"]}'">
+    >
+  </button>
     </td>
     <td>${el["rollNo"]}</td>
     <td>${el["email"]}</td>

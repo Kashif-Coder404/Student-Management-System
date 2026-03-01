@@ -82,8 +82,10 @@
   <script src="js/global.js"></script>
   <script>
     const params = new URLSearchParams(window.location.search);
-    const status = params.get("status");
-    const msg = params.get("msg");
-    console.log(msg);
+    const rollNo = params.get("rollNo");
+
+    if (rollNo) {
+      stDet(rollNo);
+    }
   </script>
 </html>

@@ -212,4 +212,5 @@ def studentDetail(stRoll: StudentDetail):
     print(f"Recieved Roll no: ",stRoll)
     with open(path,"r") as f:
         data = json.load(f)
-        return {"msg" : data}
+        
+        return {"msg" : data.get(stRoll)}

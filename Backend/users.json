@@ -1,3 +1,11 @@
 {
-    
+  "B.C.A-001": {
+    "firstName": "Ayaan",
+    "name": "Ayaan Khan",
+    "email": "ayaan.khan@testmail.com",
+    "phone": "9876543210",
+    "gender": "Male",
+    "course": "B.C.A-001",
+    "address": "Flat No 12, Green Park Colony, Near City Mall, Hyderabad"
+  }
 }

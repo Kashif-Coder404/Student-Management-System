@@ -129,4 +129,10 @@ stObj = {
         "course": "B.B.A",
         "address": "35/84 Muslim colony lakhi bhagh Dehradun"
 }      
-addSt(stObj)
+
+roll = "B.C.A-001"
+def stDet(rollNo):
+    with open(path,"r") as file:
+        data = json.load(file)
+        print(data.get(rollNo))
+stDet(roll)
