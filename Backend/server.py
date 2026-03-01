@@ -209,8 +209,14 @@ class StudentDetail(BaseModel):
     stRoll: Optional[str] = None
 @app.post("/stDet")
 def studentDetail(stRoll: StudentDetail):
-    print(f"Recieved Roll no: ",stRoll)
-    with open(path,"r") as f:
+    with open(path, "r") as f:
         data = json.load(f)
-        
-        return {"msg" : data.get(stRoll)}
+
+    roll_no = stRoll.stRoll   # ✅ extract value
+
+    student = data.get(roll_no)
+
+    if not student:
+        return {"error": "Student not found"}
+
+    return {"msg" : student}
