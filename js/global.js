@@ -103,3 +103,7 @@ async function stDet(stRollNo) {
     console.log(err);
   }
 }
+
+//Student Data:
+
+let studentData = [];

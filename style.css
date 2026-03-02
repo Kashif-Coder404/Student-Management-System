@@ -142,15 +142,17 @@ body {
 /* Table Section */
 .table-section {
   background-color: white;
-  padding: 20px;
+  padding: 0 5px;
   border-radius: 8px;
-  overflow-x: auto; /* Fixes horizontal overflow for large tables */
+  height: 600px;
+  overflow: auto; /* Fixes horizontal overflow for large tables */
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
+  position: relative;
 }
 
 table th,
@@ -162,8 +164,24 @@ table td {
 
 table th {
   background-color: #ecf0f1;
+  position: sticky;
+  top: 0;
+  /* width: 100%; */
 }
 
+.getDetBtn {
+  padding: 5px 10px;
+  background-color: #08427f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.getDetBtn:hover {
+  padding: 7px 12px;
+  transition: 0.3s ease-in-out;
+}
 /* Top actions */
 .top-actions {
   display: flex;

@@ -1,6 +1,7 @@
 const tableHead = docEl("tH");
 
 async function getStudentDetails() {
+  console.log("FETCHING");
   try {
     const res = await fetch(
       "https://student-management-system-u00h.onrender.com/students",
@@ -9,26 +10,33 @@ async function getStudentDetails() {
       },
     );
     const data = await res.json();
-    console.log("View Students from server: ", data);
-    insertStudent(data["studentData"]);
+    studentData = Object.values(data["studentData"]);
+    console.log(studentData);
+    insertStudent(studentData);
   } catch (err) {
     console.log("server ERROR: ", err);
   }
 }
 getStudentDetails();
 
-function insertStudent(dataOfStudent) {
-  const stArr = Object.values(dataOfStudent);
-  stArr.forEach((el) => {
-    console.log(el);
+function insertStudent(stDataArr) {
+  tableHead.innerHTML = `
+  <tr>
+                <th>Name</th>
+                <th>Roll No</th>
+                <th>Email</th>
+                <th>Course</th>
+              </tr>
+  `;
+  stDataArr.forEach((el) => {
     tableHead.innerHTML += `
-    <tr class="stRow" name="${el["name"]}" id="${el["rollNo"]}">
+    <tr class="stRow">
     <td>
     
-    ${el["name"]}
-    <button onclick="window.location.href='studentDetails.html?rollNo=${el["rollNo"]}'">
+    <button class="getDetBtn" onclick="window.location.href='studentDetails.html?rollNo=${el["rollNo"]}'">
     >
-  </button>
+    </button>
+    ${el["name"]}
     </td>
     <td>${el["rollNo"]}</td>
     <td>${el["email"]}</td>
@@ -42,15 +50,25 @@ serachInpEl.addEventListener("input", (e) => {
   searchSt(e.target.value);
 });
 
-function searchSt(nameORrollNo) {
-  const idEls = document.querySelectorAll(".stRow");
-
-  idEls.forEach((el) => {
-    const stId = el.getAttribute("id");
-    const stName = el.getAttribute("name");
-    // console.log(el.getAttribute("id"));
-    if (stId.includes(nameORrollNo) || stName.includes(nameORrollNo)) {
-      console.log("FOUND!")
-    }
-  });
+function searchSt(val) {
+  const searchVal = val.toLowerCase();
+  const filteredSts = studentData.filter(
+    (st) =>
+      st.name.toLowerCase().includes(searchVal) ||
+      st.rollNo.toLowerCase().includes(searchVal) ||
+      st.email.toLowerCase().includes(searchVal),
+  );
+  insertStudent(filteredSts);
 }
+// function searchSt(val) {
+//   const searchVal = val.toLowerCase();
+
+//   const filteredSts = studentData.filter(
+//     (st) =>
+//       st.name.toLowerCase().includes(searchVal) ||
+//       st.rollNo.toLowerCase().includes(searchVal) ||
+//       st.email.toLowerCase().includes(searchVal),
+//   );
+
+//   insertStudent(filteredSts);
+// }
