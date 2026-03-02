@@ -230,7 +230,7 @@ def adminCheck(adminKey: AdminKeyRequest):
     global isAdmin
     Key = adminKey.adminKey
     
-    if Key == "yesDelSt2026":
+    if Key == "kashifKeyUnique2026":
         isAdmin = True
         print("true runs")
         return {"msg" : "Access Granted!" , "isAdmin" : isAdmin , "status" : "success"}
