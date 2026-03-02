@@ -1,12 +1,202 @@
 {
-  "B.C.A-001": {
-    "firstName": "Ayaan",
-    "name": "Ayaan Khan",
-    "email": "ayaan.khan@testmail.com",
-    "phone": "9876543210",
+  "B.C.A-031": {
+    "firstName": "Rohan",
+    "name": "Rohan Verma",
+    "email": "rohan.verma@testmail.com",
+    "phone": "9012345601",
     "gender": "Male",
     "course": "B.C.A",
-    "rollNo": "B.C.A-001",
-    "address": "Flat No 12, Green Park Colony, Near City Mall, Hyderabad"
+    "rollNo": "B.C.A-031",
+    "address": "Sector 15, Noida, Uttar Pradesh"
+  },
+  "B.C.A-032": {
+    "firstName": "Ananya",
+    "name": "Ananya Sharma",
+    "email": "ananya.sharma@testmail.com",
+    "phone": "9012345602",
+    "gender": "Female",
+    "course": "B.C.A",
+    "rollNo": "B.C.A-032",
+    "address": "Rajaji Nagar, Bengaluru, Karnataka"
+  },
+  "B.C.A-033": {
+    "firstName": "Amit",
+    "name": "Amit Patel",
+    "email": "amit.patel@testmail.com",
+    "phone": "9012345603",
+    "gender": "Male",
+    "course": "B.C.A",
+    "rollNo": "B.C.A-033",
+    "address": "Satellite Area, Ahmedabad, Gujarat"
+  },
+  "B.C.A-034": {
+    "firstName": "Priya",
+    "name": "Priya Iyer",
+    "email": "priya.iyer@testmail.com",
+    "phone": "9012345604",
+    "gender": "Female",
+    "course": "B.C.A",
+    "rollNo": "B.C.A-034",
+    "address": "Adyar, Chennai, Tamil Nadu"
+  },
+  "B.C.A-035": {
+    "firstName": "Kunal",
+    "name": "Kunal Mehta",
+    "email": "kunal.mehta@testmail.com",
+    "phone": "9012345605",
+    "gender": "Male",
+    "course": "B.C.A",
+    "rollNo": "B.C.A-035",
+    "address": "Andheri West, Mumbai, Maharashtra"
+  },
+  "B.C.A-036": {
+    "firstName": "Sneha",
+    "name": "Sneha Kulkarni",
+    "email": "sneha.kulkarni@testmail.com",
+    "phone": "9012345606",
+    "gender": "Female",
+    "course": "B.C.A",
+    "rollNo": "B.C.A-036",
+    "address": "Kothrud, Pune, Maharashtra"
+  },
+  "B.C.A-037": {
+    "firstName": "Rahul",
+    "name": "Rahul Singh",
+    "email": "rahul.singh@testmail.com",
+    "phone": "9012345607",
+    "gender": "Male",
+    "course": "B.C.A",
+    "rollNo": "B.C.A-037",
+    "address": "Alambagh, Lucknow, Uttar Pradesh"
+  },
+  "B.C.A-038": {
+    "firstName": "Neha",
+    "name": "Neha Gupta",
+    "email": "neha.gupta@testmail.com",
+    "phone": "9012345608",
+    "gender": "Female",
+    "course": "B.C.A",
+    "rollNo": "B.C.A-038",
+    "address": "Civil Lines, Jaipur, Rajasthan"
+  },
+  "B.C.A-039": {
+    "firstName": "Arjun",
+    "name": "Arjun Nair",
+    "email": "arjun.nair@testmail.com",
+    "phone": "9012345609",
+    "gender": "Male",
+    "course": "B.C.A",
+    "rollNo": "B.C.A-039",
+    "address": "Kakkanad, Kochi, Kerala"
+  },
+  "B.C.A-040": {
+    "firstName": "Pooja",
+    "name": "Pooja Chatterjee",
+    "email": "pooja.chatterjee@testmail.com",
+    "phone": "9012345610",
+    "gender": "Female",
+    "course": "B.C.A",
+    "rollNo": "B.C.A-040",
+    "address": "Salt Lake, Kolkata, West Bengal"
+  },
+  "B.C.A-041": {
+    "firstName": "Siddharth",
+    "name": "Siddharth Malhotra",
+    "email": "siddharth.malhotra@testmail.com",
+    "phone": "9012345611",
+    "gender": "Male",
+    "course": "B.C.A",
+    "rollNo": "B.C.A-041",
+    "address": "South Extension, New Delhi"
+  },
+  "B.C.A-042": {
+    "firstName": "Kavya",
+    "name": "Kavya Reddy",
+    "email": "kavya.reddy@testmail.com",
+    "phone": "9012345612",
+    "gender": "Female",
+    "course": "B.C.A",
+    "rollNo": "B.C.A-042",
+    "address": "Gachibowli, Hyderabad, Telangana"
+  },
+  "B.C.A-043": {
+    "firstName": "Nikhil",
+    "name": "Nikhil Bansal",
+    "email": "nikhil.bansal@testmail.com",
+    "phone": "9012345613",
+    "gender": "Male",
+    "course": "B.C.A",
+    "rollNo": "B.C.A-043",
+    "address": "Model Town, Ludhiana, Punjab"
+  },
+  "B.C.A-044": {
+    "firstName": "Ishita",
+    "name": "Ishita Roy",
+    "email": "ishita.roy@testmail.com",
+    "phone": "9012345614",
+    "gender": "Female",
+    "course": "B.C.A",
+    "rollNo": "B.C.A-044",
+    "address": "Dispur, Guwahati, Assam"
+  },
+  "B.C.A-045": {
+    "firstName": "Manish",
+    "name": "Manish Tiwari",
+    "email": "manish.tiwari@testmail.com",
+    "phone": "9012345615",
+    "gender": "Male",
+    "course": "B.C.A",
+    "rollNo": "B.C.A-045",
+    "address": "Sigra, Varanasi, Uttar Pradesh"
+  },
+  "B.C.A-046": {
+    "firstName": "Ritika",
+    "name": "Ritika Joshi",
+    "email": "ritika.joshi@testmail.com",
+    "phone": "9012345616",
+    "gender": "Female",
+    "course": "B.C.A",
+    "rollNo": "B.C.A-046",
+    "address": "Haldwani, Uttarakhand"
+  },
+  "B.C.A-047": {
+    "firstName": "Abhishek",
+    "name": "Abhishek Das",
+    "email": "abhishek.das@testmail.com",
+    "phone": "9012345617",
+    "gender": "Male",
+    "course": "B.C.A",
+    "rollNo": "B.C.A-047",
+    "address": "Beltola, Guwahati, Assam"
+  },
+  "B.C.A-048": {
+    "firstName": "Tanvi",
+    "name": "Tanvi Deshpande",
+    "email": "tanvi.deshpande@testmail.com",
+    "phone": "9012345618",
+    "gender": "Female",
+    "course": "B.C.A",
+    "rollNo": "B.C.A-048",
+    "address": "Panaji, Goa"
+  },
+  "B.C.A-049": {
+    "firstName": "Varun",
+    "name": "Varun Kapoor",
+    "email": "varun.kapoor@testmail.com",
+    "phone": "9012345619",
+    "gender": "Male",
+    "course": "B.C.A",
+    "rollNo": "B.C.A-049",
+    "address": "Sector 22, Chandigarh"
+  },
+  "B.C.A-050": {
+    "firstName": "Meera",
+    "name": "Meera Menon",
+    "email": "meera.menon@testmail.com",
+    "phone": "9012345620",
+    "gender": "Female",
+    "course": "B.C.A",
+    "rollNo": "B.C.A-050",
+    "address": "Vyttila, Kochi, Kerala"
   }
 }

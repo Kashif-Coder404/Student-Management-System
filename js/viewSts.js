@@ -22,7 +22,7 @@ function insertStudent(dataOfStudent) {
   stArr.forEach((el) => {
     console.log(el);
     tableHead.innerHTML += `
-    <tr>
+    <tr class="stRow" name="${el["name"]}" id="${el["rollNo"]}">
     <td>
     
     ${el["name"]}
@@ -36,4 +36,21 @@ function insertStudent(dataOfStudent) {
     </tr>`;
   });
 }
-// insertStudent(stData);
+
+const serachInpEl = document.getElementById("searchInput");
+serachInpEl.addEventListener("input", (e) => {
+  searchSt(e.target.value);
+});
+
+function searchSt(nameORrollNo) {
+  const idEls = document.querySelectorAll(".stRow");
+
+  idEls.forEach((el) => {
+    const stId = el.getAttribute("id");
+    const stName = el.getAttribute("name");
+    // console.log(el.getAttribute("id"));
+    if (stId.includes(nameORrollNo) || stName.includes(nameORrollNo)) {
+      console.log("FOUND!")
+    }
+  });
+}
