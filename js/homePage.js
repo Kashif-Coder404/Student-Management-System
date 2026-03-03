@@ -3,9 +3,7 @@ const total_Student_El = docEl("totalStudents");
 
 async function getStudents() {
   try {
-    const res = await fetch(
-      "https://student-management-system-u00h.onrender.com/students",
-    );
+    const res = await fetch(`${renderAPI}/students`);
     const data = await res.json();
     totalStudents = data["studentsNum"];
     total_Student_El.innerText = totalStudents;

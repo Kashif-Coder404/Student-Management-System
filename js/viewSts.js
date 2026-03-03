@@ -1,14 +1,10 @@
 const tableHead = docEl("tH");
 
 async function getStudentDetails() {
-  console.log("FETCHING");
   try {
-    const res = await fetch(
-      "https://student-management-system-u00h.onrender.com/students",
-      {
-        method: "GET",
-      },
-    );
+    const res = await fetch(`${renderAPI}/students`, {
+      method: "GET",
+    });
     const data = await res.json();
     studentData = Object.values(data["studentData"]);
     console.log(studentData);

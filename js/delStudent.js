@@ -24,16 +24,12 @@ sendKeyBtn.addEventListener("click", () => {
 });
 async function adminCheck(key) {
   try {
-    const res = await fetch(
-      `https://student-management-system-u00h.onrender.com/delStudents`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ authKey: key, stRoll: "", name: "" }),
-      },
-    );
+    const res = await fetch(`${renderAPI}/adminCheck`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ authKey: key }),
+    });
     const data = await res.json();
-    console.log("data first: ", data);
 
     if (data.isAdmin) {
       keyAlertEl.innerText = "Access Granted";
@@ -64,19 +60,15 @@ async function delSt(stDet) {
   }
 
   try {
-    const res = await fetch(
-      `https://student-management-system-u00h.onrender.com/delStudents`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        // Map your form data to the backend 'stRoll' field
-        body: JSON.stringify({
-          authKey: delkey,
-          stRoll: stDet.rollNo,
-          name: stDet.name,
-        }),
-      },
-    );
+    const res = await fetch(`${renderAPI}/delStudent`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      // Map your form data to the backend 'stRoll' field
+      body: JSON.stringify({
+        stRoll: stDet.rollNo,
+        name: stDet.name,
+      }),
+    });
 
     const data = await res.json();
     console.log(data);

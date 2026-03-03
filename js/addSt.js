@@ -25,15 +25,13 @@ cancelKeyBtn.addEventListener("click", () => {
 });
 
 async function keyCheck(key) {
+  console.log("Sending KEY: ", key);
   try {
-    const res = await fetch(
-      "https://student-management-system-u00h.onrender.com/adminCheck",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ adminKey: key }),
-      },
-    );
+    const res = await fetch(`${renderAPI}/adminCheck`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ authKey: key }),
+    });
     const data = await res.json();
     if (data.status === "error") {
       keyAlertEl.innerText = data.msg;
@@ -60,14 +58,11 @@ verifyKeyBtn.addEventListener("click", async () => {
 
 async function addStudent(st) {
   try {
-    const res = await fetch(
-      "https://student-management-system-u00h.onrender.com/addStudent",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(st),
-      },
-    );
+    const res = await fetch(`${renderAPI}/addStudent`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(st),
+    });
 
     const data = await res.json();
 

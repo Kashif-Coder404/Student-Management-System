@@ -1,6 +1,8 @@
 const docEl = (id) => {
   return document.getElementById(id);
 };
+const renderAPI = "https://student-management-system-u00h.onrender.com";
+const localAPI = "http://192.168.31.116:5100";
 
 document.addEventListener("DOMContentLoaded", async () => {
   const navbarContainer = docEl("navbar-container");
@@ -31,13 +33,10 @@ const savedKey = sessionStorage.getItem("adminKey");
 
 async function logout() {
   try {
-    const res = await fetch(
-      "https://student-management-system-u00h.onrender.com/logout",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-      },
-    );
+    const res = await fetch(`${renderAPI}/logout`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+    });
     const data = await res.json();
     if (data.status === "success") {
       sessionStorage.removeItem("adminKey");
@@ -81,14 +80,11 @@ sideLinks.forEach((li) => {
 
 async function stDet(stRollNo) {
   try {
-    const res = await fetch(
-      "https://student-management-system-u00h.onrender.com/stDet",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ stRoll: stRollNo }),
-      },
-    );
+    const res = await fetch(`${renderAPI}/stDet`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ stRoll: stRollNo }),
+    });
     const data = await res.json();
     document.getElementById("name").textContent = data.msg.name;
     document.getElementById("rollNo").textContent = stRollNo;
@@ -100,7 +96,7 @@ async function stDet(stRollNo) {
 
     // window.location.href = `studentDetails.html?staus=${data.status}&msg=${data.message}`;
   } catch (err) {
-    console.log(err);
+    console.log("ERROR: ", err);
   }
 }
 
