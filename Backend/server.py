@@ -99,14 +99,17 @@ def addStudent(st: StudentDetails):
         
         newRoll = f"{course}-{random_suffix}"
         
-        isStudent = True if stColl.find({"rollNo": newRoll} , {"_id" : 0}) else False
-            
-        if not isStudent:    
-            return newRoll
+        return newRoll
     
+    genRN = generateRollNo(st.course)
+    isStudent = True if stColl.find({"rollNo": genRN} , {"_id" : 0}) else False
+    if isStudent:
+        genRN = generateRollNo(st.course)
+        
+        
     students = list(stColl.find({"course": st.course}, {"_id": 0}))
     
-    
+    print("GENERATED ROLL NO: ",genRN)
     # Checking for the already present student with name for now
     for el in students:
         if(el["name"] == st.name and el["email"] == st.email.lower()):
@@ -122,7 +125,7 @@ def addStudent(st: StudentDetails):
         "phone": st.phone,
         "gender": st.gender,
         "course": st.course,
-        "rollNo": generateRollNo(st.course),
+        "rollNo": genRN,
         "address": st.address,
         "createdAt": datetime.now(timezone.utc)
     }
