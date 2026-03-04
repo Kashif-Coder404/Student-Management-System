@@ -5,7 +5,7 @@ from pymongo.server_api import ServerApi
 from pydantic import BaseModel , EmailStr
 from typing import Optional # Import this
 from dotenv import load_dotenv
-import os
+import os,certifi
 
 load_dotenv()
 
@@ -27,7 +27,11 @@ app.add_middleware(
 uri = os.getenv("MONGO_URI")
 
 # Create a new client and connect to the server
-client = MongoClient(uri, server_api=ServerApi('1'))
+client = MongoClient(
+    uri,
+    server_api=ServerApi('1'),
+    tlsCAFile=certifi.where()
+)
 db  = client["FirstDB"]
 stColl = db["Students"]
 prKeyColl = db["Privatekeys"]
