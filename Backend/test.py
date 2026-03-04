@@ -1,4 +1,4 @@
-import json,os
+
 
 # # path = './users.json'
 # # data = {}
@@ -139,6 +139,17 @@ path = "./users.json"
 
 
 
-def courseData():
-    if not os.path.exists(path):
-        
+from dotenv import load_dotenv
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
+import os
+
+load_dotenv()
+
+uri = os.getenv("MONGO_URI")
+client = MongoClient(uri, server_api=ServerApi('1'))
+db  = client["FirstDB"]
+stColl = db["Students"]
+prKeyColl = db["Privatekeys"]
+
+print(stColl.find_one({"name" : "Rohan"}, {"_id" : 0}))

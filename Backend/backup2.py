@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
+import os
 from pydantic import BaseModel , EmailStr
 from typing import Optional # Import this
 
@@ -22,7 +23,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-uri = "mongodb+srv://kashifahmead8755_db_user:CBaLg3jkw3UkhfZf@cluster0.pmk83yr.mongodb.net/?appName=Cluster0"
+uri = os.getenv("MONGO_URI")
 
 # Create a new client and connect to the server
 client = MongoClient(uri, server_api=ServerApi('1'))

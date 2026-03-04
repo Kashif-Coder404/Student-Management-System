@@ -4,8 +4,10 @@ from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 from pydantic import BaseModel , EmailStr
 from typing import Optional # Import this
+from dotenv import load_dotenv
+import os
 
-
+load_dotenv()
 
 app  = FastAPI()
 origins = [
@@ -22,7 +24,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-uri = "mongodb+srv://kashifahmead8755_db_user:CBaLg3jkw3UkhfZf@cluster0.pmk83yr.mongodb.net/?appName=Cluster0"
+uri = os.getenv("MONGO_URI")
 
 # Create a new client and connect to the server
 client = MongoClient(uri, server_api=ServerApi('1'))
@@ -34,6 +36,8 @@ isAdmin = False
 
 @app.get("/")
 def home():
+    print(uri)
+    print("Data base: ",db)
     return {"msg" : "Server is running"}
 
 @app.get("/students")
