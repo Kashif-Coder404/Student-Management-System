@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -6,32 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="buttonStyle.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
-    <!-- Top Navbar -->
     <div id="navbar-container"></div>
 
     <div class="container">
       <aside class="sidebar">
-        <!-- <button id="menu-btn" class="menu-btn">☰</button> -->
         <div class="aside-inner-cont">
           <ul>
             <li class="sideLink active" id="dashboard">
-              <a href="index.html">Dashboard</a>
+              <a href="index.html"><i class="fa-solid fa-table-columns"></i> Dashboard</a>
             </li>
             <li class="sideLink" id="addStudent">
-              <a href="addStudent.html">Add Student</a>
+              <a href="addStudent.html"><i class="fa-solid fa-user-plus"></i> Add Student</a>
             </li>
             <li class="sideLink" id="viewStudent">
-              <a href="students.html">View Students</a>
+              <a href="students.html"><i class="fa-solid fa-users"></i> View Students</a>
             </li>
             <li class="sideLink" id="delStudent">
-              <a href="delStudent.html">Delete Students</a>
+              <a href="delStudent.html"><i class="fa-solid fa-trash-can"></i> Delete Students</a>
             </li>
           </ul>
         </div>
       </aside>
-      <!-- Main Content -->
       <main class="main-content">
         <h1>Dashboard</h1>
         <div class="quick-actions">
@@ -39,6 +37,7 @@
             class="quickCardBtn"
             onclick="location.href = 'addStudent.html'"
           >
+            <i class="fa-solid fa-user-plus"></i>
             + Add Student
             <div class="arrow-wrapper">
               <div class="arrow"></div>
@@ -48,6 +47,7 @@
             class="quickCardBtn"
             onclick="location.href = 'students.html'"
           >
+            <i class="fa-solid fa-users"></i>
             View Students
             <div class="arrow-wrapper">
               <div class="arrow"></div>
@@ -57,6 +57,7 @@
             class="quickCardBtn"
             onclick="location.href = 'delStudent.html'"
           >
+            <i class="fa-solid fa-trash-can"></i>
             Delete Student
 
             <div class="arrow-wrapper">
@@ -64,25 +65,27 @@
             </div>
           </button>
         </div>
-        <!-- Stats Cards -->
         <div class="cards">
           <div class="card">
-            <h3>Total Students</h3>
+            <h3><i class="fa-regular fa-user-circle"></i> Total Students</h3>
             <p id="totalStudents">0</p>
           </div>
 
           <div class="card">
-            <h3>Total Courses</h3>
-            <p>5</p>
+            <h3><i class="fa-solid fa-book-open"></i> Total Courses: 3</h3>
+            <div id="numCourse">
+              <div><h4>B.C.A: <i id="BCA"></i> </h4></div>
+              <div><h4>B.B.A: <i id="BBA"></i> </h4></div>
+              <div><h4>BSc IT: <i id="BSc-IT"></i> </h4></div>
+            </div>
           </div>
 
           <div class="card">
-            <h3>Active Students</h3>
+            <h3><i class="fa-solid fa-check-to-slot"></i> Active Students</h3>
             <p>0</p>
           </div>
         </div>
 
-        <!-- Recent Students Table -->
         <div class="table-section">
           <h2>Recent Students</h2>
           <table>
@@ -94,8 +97,7 @@
               </tr>
             </thead>
             <tbody id="recentStudents">
-              <!-- JS will insert rows here -->
-            </tbody>
+              </tbody>
           </table>
         </div>
       </main>

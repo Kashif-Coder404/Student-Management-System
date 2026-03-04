@@ -48,7 +48,12 @@ def home():
 @app.get("/students")
 def students():
     students = list(stColl.find({}, {"_id" : 0}))
-    return {"studentsNum": len(students), "studentData" : students}
+    c1 = stColl.count_documents({"course": "B.C.A"})
+    c2 = stColl.count_documents({"course": "B.B.A"})
+    c3 = stColl.count_documents({"course": "BSc IT"})
+    
+    
+    return {"studentsNum": len(students), "studentData" : students , "cBCA" : c1 , "cBBA" : c2 , "cBSCIT" : c3}
 
 class AdminKey(BaseModel):
     authKey: Optional[str] = None
