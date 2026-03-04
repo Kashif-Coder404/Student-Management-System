@@ -5,6 +5,7 @@ from pymongo.server_api import ServerApi
 from pydantic import BaseModel , EmailStr
 from typing import Optional # Import this
 from dotenv import load_dotenv
+from datetime import datetime,timezone
 import os,certifi
 
 load_dotenv()
@@ -111,7 +112,8 @@ def addStudent(st: StudentDetails):
         "gender": st.gender,
         "course": st.course,
         "rollNo": generateRollNo(st.course),
-        "address": st.address
+        "address": st.address,
+        "createdAt": datetime.now(timezone.utc)
     }
 
     

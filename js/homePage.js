@@ -13,7 +13,6 @@ async function getStudents() {
     bbaEL.innerText = data["cBBA"];
     bscITEL.innerText = data["cBSCIT"];
     total_Student_El.innerText = totalStudents;
-    console.log(totalStudents);
   } catch (err) {
     console.log("Server Error: ", err);
   }

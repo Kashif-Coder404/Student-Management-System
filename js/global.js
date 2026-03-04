@@ -49,7 +49,6 @@ async function logout() {
 }
 function toggleSidebar() {
   const sidebarEl = document.querySelector(".sidebar");
-  console.log(sidebarEl);
   if (!sidebarEl) return;
 
   sidebarEl.classList.toggle("active");

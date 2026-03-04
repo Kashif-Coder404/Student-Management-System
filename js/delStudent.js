@@ -13,7 +13,6 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
   const formData = new FormData(form);
   const stDetail = Object.fromEntries(formData.entries());
-  console.log(stDetail);
 
   delSt(stDetail);
 });
@@ -77,7 +76,6 @@ async function delSt(stDet) {
     });
 
     const data = await res.json();
-    console.log(data);
     delAlertEl.innerText = data.msg || data.error;
 
     if (data.status === "success") {

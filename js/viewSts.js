@@ -7,7 +7,6 @@ async function getStudentDetails() {
     });
     const data = await res.json();
     studentData = Object.values(data["studentData"]);
-    console.log(studentData);
     insertStudent(studentData);
   } catch (err) {
     console.log("server ERROR: ", err);
@@ -18,13 +17,15 @@ getStudentDetails();
 function insertStudent(stDataArr) {
   tableHead.innerHTML = `
   <tr>
-                <th>Name</th>
-                <th>Roll No</th>
-                <th>Email</th>
-                <th>Course</th>
+                <th><i class="fa-regular fa-user"></i> Name</th>
+                <th><i class="fa-regular fa-id-card"></i> Roll No</th>
+                <th><i class="fa-regular fa-envelope"></i> Email</th>
+                <th><i class="fa-solid fa-book"></i> Course</th>
+                <th><i class="fa-solid fa-book"></i> Date</th>
               </tr>
   `;
   stDataArr.forEach((el) => {
+    const displayTime = new Date(el["createdAt"]).toLocaleString();
     tableHead.innerHTML += `
     <tr class="stRow">
     <td>
@@ -37,6 +38,7 @@ function insertStudent(stDataArr) {
     <td>${el["rollNo"]}</td>
     <td>${el["email"]}</td>
     <td>${el["course"]}</td>
+    <td>${displayTime}</td>
     </tr>`;
   });
 }
