@@ -6,6 +6,7 @@ from pydantic import BaseModel , EmailStr
 from typing import Optional # Import this
 from dotenv import load_dotenv
 from datetime import datetime,timezone
+import random, string
 import os,certifi
 
 load_dotenv()
@@ -88,10 +89,20 @@ class StudentDetails(BaseModel):
 def addStudent(st: StudentDetails):
     
     def generateRollNo(course: str):
-        courseStNum = stColl.count_documents({"course": course})
-        leadingZero = "-00" if courseStNum < 10 else "-0"
-        genRollNo = course + leadingZero + str(courseStNum + 1)
-        return genRollNo
+        # courseStNum = stColl.count_documents({"course": course})
+        # leadingZero = "-00" if courseStNum < 10 else "-0"
+        # genRollNo = course + leadingZero + str(courseStNum + 1)\
+            
+        
+        chars = string.ascii_uppercase + string.digits
+        random_suffix = ''.join(random.choices(chars, k=6))
+        
+        newRoll = f"{course}-{random_suffix}"
+        
+        isStudent = True if stColl.find({"rollNo": newRoll} , {"_id" : 0}) else False
+            
+        if not isStudent:    
+            return newRoll
     
     students = list(stColl.find({"course": st.course}, {"_id": 0}))
     

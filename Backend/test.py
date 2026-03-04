@@ -1,155 +1,82 @@
-
-
-# # path = './users.json'
-# # data = {}
-# # if(not os.path.exists(path)):
-# #     with open("./users.json","w") as file:
-# #         json.dump({},file,indent=4)
-# #         data = json.load(file)
-    
-# # def getUsersNum():
-# #     with open(path,"r") as f:
-# #         data = json.load(f)
-# #         keys = 0
-# #         for key in data:
-# #             if(key):
-# #                 keys = keys +1
-# #         return keys
-
-# # def addStudent(student: dict):
-# #     keys = 0
-# #     with open(path,"r") as f:
-# #         data = json.load(f)
-# #         for key in data:
-# #             if(key):
-# #                 keys += 1
-# #         with open(path,"w") as file:
-# #             data["S"+ str(keys + 1)] = {
-# #                 "name": student.get("name"),
-# #                 "rollNo": student.get("rollNo"),
-# #                 "email":student.get("email"),
-# #                 "phone":student.get("phone"),
-# #                 "gender":student.get("gender"),
-# #                 "course":student.get("course"),
-# #                 "address": student.get("address")}
-# #             json.dump(data,file,indent=4)
-
-
-# # def delSt(stRoll):
-# #     with open(path,"r") as f:
-# #         data = json.load(f)
-# #         with open(path,"w") as file:
-# #             try:
-# #                 del data[stRoll]
-# #                 json.dump(data,file,indent=4)
-# #                 return {"message": "Student Deleted Successfully"}
-# #             except KeyError:
-# #                 return {"message": "Student Not present"}
-
-
-# stData = {
-#     "s1": {
-#         "name": "somename",
-#         "rollNo": 12364
-#     },
-#     "s2": {
-#         "name": "somename",
-#         "rollNo": 12364
-#     }
-# }
-path = "./users.json"
-# isAdmin = False
-# def delSt(rollNo,name):
-#     try:
-#         with open(path, "r") as f:
-#             data = json.load(f)
-            
-#         if rollNo in data and data[rollNo].get("name") == name:
-#             del data[rollNo]
-#             with open(path, "w") as file:
-#                 json.dump(data, file, indent=4)
-#         else:
-#             print(data[rollNo].get("name"))
-#     except KeyError:
-#             print("key error found!")          
-#     except Exception as e:
-#             print("ERROR: ", str(e)) 
-
-# delSt("12345","Kashif ahmead")
-
-# def generateRollNo(course: str):
-#     courseStNum = 0
-#     genRollNo = ""
-#     with open(path,"r") as f:
-#         data = json.load(f)
-#         for key in data:
-#             if(key):
-#                 if(data[key].get("course") == course):
-#                     courseStNum += 1
-#         leadingZero = "-00" if courseStNum < 10 else "-0"
-#         genRollNo = course + leadingZero + str(courseStNum + 1)
-#     return str(genRollNo)
-
-# def addSt(student):
-#     newRoll = generateRollNo(student.get("course"))
-#     with open(path,"r") as f:
-#         data = json.load(f)
-#         name = student.get("name")
-#         namePresent = False
-#         for key in data:
-#             if(key):     
-#                 if(data[key].get("name") == name):
-#                     namePresent = True
-#                     break
-#         if namePresent:
-#             print("Student Already Present. Try Different Name")
-            
-            
-#             return {"message": "Student Already Present", "status": "error"}
-#         with open(path,"w") as file:
-#             data[newRoll] = {
-#                 "firstName": student.get("firstName"),
-#                 "name": student.get("name"),
-#                 "rollNo": newRoll,
-#                 "email":student.get("email"),
-#                 "phone":student.get("phone"),
-#                 "gender":student.get("gender"),
-#                 "course":student.get("course"),
-#                 "address": student.get("address")}
-#             json.dump(data,file,indent=4)
-#             print("successfully added the Student")
-#             return {"message": "Student added!","student": student , "status": "success"}
-# stObj = {
-#         "firstName": "Kashif",
-#         "name": "Kashif Ahmead",
-#         "rollNo": "366454",
-#         "email": "faeezdon77@gmail.com",
-#         "phone": "976090395",
-#         "gender": "Male",
-#         "course": "B.B.A",
-#         "address": "35/84 Muslim colony lakhi bhagh Dehradun"
-# }      
-
-# roll = "B.C.A-001"
-# def stDet(rollNo):
-#     with open(path,"r") as file:
-#         data = json.load(file)
-#         print(data.get(rollNo))
-# stDet(roll)
-
-
-
+import os
+import random
+import string
+from datetime import datetime, timezone, timedelta
 from dotenv import load_dotenv
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
-import os
+import certifi
 
+# Load environment variables
 load_dotenv()
 
+# Connect to MongoDB
 uri = os.getenv("MONGO_URI")
-client = MongoClient(uri, server_api=ServerApi('1'))
-db  = client["FirstDB"]
+client = MongoClient(uri, tlsCAFile=certifi.where(), server_api=ServerApi('1'))
+db = client["FirstDB"]
 stColl = db["Students"]
-prKeyColl = db["Privatekeys"]
 
-print(stColl.find_one({"name" : "Rohan"}, {"_id" : 0}))
+# Data pools for random generation
+male_names = ["Aarav", "Vihaan", "Aditya", "Kashif", "Arjun", "Rohan", "Karan", "Rahul", "Omar", "Zain"]
+female_names = ["Ananya", "Diya", "Isha", "Priya", "Sara", "Zara", "Neha", "Kavya", "Aisha", "Fatima"]
+last_names = ["Sharma", "Verma", "Mehta", "Khan", "Ahmed", "Singh", "Patel", "Gupta", "Ali", "Das"]
+cities = [
+    "Dehradun, Uttarakhand", "Noida, Uttar Pradesh", "Bengaluru, Karnataka", 
+    "Mumbai, Maharashtra", "Delhi, NCR", "Pune, Maharashtra", 
+    "Hyderabad, Telangana", "Chennai, Tamil Nadu"
+]
+courses = ["BCA", "BBA", "BSc IT"]
+
+students_to_insert = []
+
+print("Generating 50 test students with random Roll Numbers...")
+
+def generateRandomRollNo(course: str):
+    """Generates a secure, random, and unique 6-character roll number."""
+    while True:
+        chars = string.ascii_uppercase + string.digits
+        random_suffix = ''.join(random.choices(chars, k=6))
+        newRoll = f"{course}-{random_suffix}"
+        
+        # Check database to ensure no collision
+        existing_student = stColl.find_one({"rollNo": newRoll})
+        if not existing_student:    
+            return newRoll
+
+# Generate 50 students
+for _ in range(50):
+    gender = random.choice(["Male", "Female"])
+    f_name = random.choice(male_names) if gender == "Male" else random.choice(female_names)
+    l_name = random.choice(last_names)
+    full_name = f"{f_name} {l_name}"
+
+    email = f"{f_name.lower()}.{l_name.lower()}{random.randint(10,999)}@testmail.com"
+    phone = str(random.randint(8000000000, 9999999999))
+    course = random.choice(courses)
+    address = f"{random.randint(1, 150)} Random Street, {random.choice(cities)}"
+
+    random_days_ago = random.randint(0, 30)
+    random_minutes_ago = random.randint(0, 1440)
+    created_at = datetime.now(timezone.utc) - timedelta(days=random_days_ago, minutes=random_minutes_ago)
+
+    student_data = {
+        "firstName": f_name,
+        "name": full_name,
+        "email": email,
+        "phone": phone,
+        "gender": gender,
+        "course": course,
+        "rollNo": generateRandomRollNo(course), # <--- Using the random generator here
+        "address": address,
+        "createdAt": created_at
+    }
+
+    students_to_insert.append(student_data)
+
+# Upload to database
+if students_to_insert:
+    # Optional: Delete existing students to start fresh
+    # stColl.delete_many({}) 
+    
+    result = stColl.insert_many(students_to_insert)
+    print(f"✅ Successfully uploaded {len(result.inserted_ids)} students to MongoDB!")
