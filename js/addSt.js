@@ -1,5 +1,6 @@
 const form = docEl("addStudentForm");
 const alertEl = docEl("alert");
+const keyAlertEL2 = document.querySelector(".key-alert"); //FOR ANIMATION ONLY
 
 const keyOverlay = docEl("keyOverlay");
 const authKeyInp = docEl("authKey");
@@ -34,11 +35,19 @@ async function keyCheck(key) {
     });
     const data = await res.json();
     if (data.status === "error") {
+      keyAlertEL2.classList.add("active");
+      setTimeout(() => {
+        keyAlertEL2.classList.remove("active");
+      }, 1000);
       keyAlertEl.innerText = data.msg;
       return false;
     }
     return true;
   } catch (err) {
+    keyAlertEL2.classList.add("active");
+    setTimeout(() => {
+      keyAlertEL2.classList.remove("active");
+    }, 1000);
     keyAlertEl.innerText = "Server Error: " + err;
     return false;
   }

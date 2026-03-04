@@ -3,7 +3,7 @@ const keyInp = docEl("authKey");
 const sendKeyBtn = docEl("sendKeybtn");
 const delAlertEl = docEl("delAlert");
 const keyAlertEl = docEl("keyAlert");
-
+const keyAlertEL2 = document.querySelector(".keyAlertEL");
 if (savedAdmin === "true" && savedKey) {
   delkey = savedKey;
   document.querySelector(".keyPrCont").style.display = "none";
@@ -20,7 +20,6 @@ form.addEventListener("submit", (e) => {
 
 sendKeyBtn.addEventListener("click", () => {
   adminCheck(keyInp.value.toString());
-  console.log(delkey);
 });
 async function adminCheck(key) {
   try {
@@ -44,10 +43,17 @@ async function adminCheck(key) {
         document.querySelector(".keyPrCont").style.display = "none";
       }, 1000);
     } else {
-      console.log(data);
+      keyAlertEL2.classList.add("active");
+      setTimeout(() => {
+        keyAlertEL2.classList.remove("active");
+      }, 1000);
       keyAlertEl.innerText = data.error || "Invalid Key";
     }
   } catch (err) {
+    keyAlertEL2.classList.add("active");
+    setTimeout(() => {
+      keyAlertEL2.classList.remove("active");
+    }, 1000);
     console.log(err);
     keyAlertEl.innerText = "Server Error!";
   }

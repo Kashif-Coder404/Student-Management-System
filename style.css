@@ -415,6 +415,21 @@ table th {
   font-weight: 500;
   word-break: break-word;
 }
+
+#keyAlert.active {
+  animation: shake 0.1s linear;
+}
+@keyframes shake {
+  0% {
+    transform: translate(-20px, 0);
+  }
+  50% {
+    transform: translate(20px, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
 /* Desktop Devices under 720p */
 @media (max-width: 1280px) {
   body {

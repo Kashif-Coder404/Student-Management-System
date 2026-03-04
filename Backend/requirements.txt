@@ -3,4 +3,5 @@ uvicorn
 pymongo
 python-dotenv
 certifi
-pydantic[email]
+pydantic
+email-validator
