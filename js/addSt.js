@@ -28,7 +28,7 @@ cancelKeyBtn.addEventListener("click", () => {
 async function keyCheck(key) {
   console.log("Sending KEY: ", key);
   try {
-    const res = await fetch(`${localAPI}/adminCheck`, {
+    const res = await fetch(`${renderAPI}/adminCheck`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ authKey: key }),
@@ -67,7 +67,7 @@ verifyKeyBtn.addEventListener("click", async () => {
 
 async function addStudent(st) {
   try {
-    const res = await fetch(`${localAPI}/addStudent`, {
+    const res = await fetch(`${renderAPI}/addStudent`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(st),
